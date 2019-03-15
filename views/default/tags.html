@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+{{include 'default/public/header.html'}}
+
+<body>
+{{include 'default/public/nav_left.html'}}
+
+
+    <div class="body-wrap">  
+
+        {{each list}}
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+              <a href="/archives/2016" class="archive-year">{{$value.year}}</a>
+            </div>
+            <div class="archives">
+        
+                {{each $value.list}}
+                <article class="archive-article archive-type-post">
+                    <div class="archive-article-inner">
+                        <header class="archive-article-header">
+                            <div class="article-meta">
+                                <a href="/spring-mvc-upload-file-ajax/" class="archive-article-date">
+                                    {{$value.add_time | dateFormat}}
+                                </a>
+
+                            </div>
+                            
+                    
+                            <h1 itemprop="name">
+                            <a class="archive-article-title" href="/article/{{@$value._id}}">{{$value.title}}</a>
+                            </h1>
+                    
+                    
+                            <div class="article-info info-on-right">
+                                {{each $value.tags}}
+                                <div class="article-tag tagcloud">
+                                    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="color3" href="/tags/{{$value}}/">{{$value}}</a></li></ul>
+                                </div>
+                                {{/each}}
+                            </div>
+                            <div class="clearfix"></div>
+                        </header>
+                    </div>
+                </article>            
+                {{/each}}
+      
+            </div>
+    </section>
+    {{/each}}
+
+
+<!-- <div id="page" class="pagination"></div>
+    
+<script src="{{__HOST__}}/jqPaginator.js"></script>
+
+<script>
+        $('#page').jqPaginator({
+            totalPages: 3,
+            visiblePages: 8,
+            currentPage: 2,
+            onPageChange: function (num, type) {
+                console.log(num, type);
+//
+                if(type=='change'){
+                    location.href="{{__HOST__}}/article?page="+num;
+                }
+            }
+        });
+
+</script>   -->
+  
+    <!-- <nav id="page-nav">
+      <span class="page-number current">1</span>
+      <a class="page-number" href="/page/2/">2</a>
+      <a class="page-number" href="/page/3/">3</a>
+      <span class="space">&hellip;</span>
+      <a class="page-number" href="/page/8/">8</a>
+      <a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav> -->
+{{include 'default/public/footer.html'}}
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+{{include 'default/public/header.html'}}
+
+<body>
+{{include 'default/public/nav_left.html'}}
+
+
+    <div class="body-wrap">  
+{{each list}}
+    <!-- 生成目录 -->
+    <article id="post-fe-vue-cli-3-multi" class="article article-type-post" itemscope itemprop="blogPost">       
+        <div class="article-meta">
+            <a href="/fe-vue-cli-3-multi/" class="article-date">
+            {{$value.add_time | dateFormat}}
+            </a>
+        </div>   
+       <div class="article-inner">     
+        
+            <input type="hidden" class="isFancy" />        
+        
+                <header class="article-header">
+            
+    
+                    <h1 itemprop="name">
+                        <a class="article-title" href="/article/{{@$value._id}}">{{$value.title}}</a>
+                    </h1>
+    
+
+                </header>        
+        
+            <div class="article-entry" itemprop="articleBody">      
+                {{@$value.content.substr(0,1000)}}
+            </div>
+        
+            <div class="article-info article-info-index">       
+            
+                <div class="article-tag tagcloud">
+                    <ul class="article-tag-list">
+                        {{each $value.tags}}
+                            <li class="article-tag-list-item"><a class="color3" href="/tags/{{$value}}/">{{$value}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>   
+                <div class="clearfix"></div>
+            </div>
+        
+        </div>
+    </article>
+{{/each}}
+
+
+<!-- <div id="page" class="pagination"></div>
+    
+<script src="{{__HOST__}}/jqPaginator.js"></script>
+
+<script>
+        $('#page').jqPaginator({
+            totalPages: {{totalPages}},
+            visiblePages: 8,
+            currentPage: {{page}},
+            onPageChange: function (num, type) {
+                console.log(num, type);
+//
+                if(type=='change'){
+                    location.href="{{__HOST__}}/article?page="+num;
+                }
+            }
+        });
+
+</script>  --> 
+  
+    <!-- <nav id="page-nav">
+      <span class="page-number current">1</span>
+      <a class="page-number" href="/page/2/">2</a>
+      <a class="page-number" href="/page/3/">3</a>
+      <span class="space">&hellip;</span>
+      <a class="page-number" href="/page/8/">8</a>
+      <a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav> -->
+{{include 'default/public/footer.html'}}
+
+
+  </div>
+</body>
+</html>

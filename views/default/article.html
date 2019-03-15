@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+{{include 'default/public/header.html'}}
+
+<body>
+{{include 'default/public/nav_left.html'}}
+
+
+    <div class="body-wrap"> 
+        {{each list}}
+            <article id="post-qt-opencv-install" class="article article-type-post" itemscope itemprop="blogPost">
+                    <div class="article-meta">
+                        <a class="article-date">
+                            {{$value.add_time | dateFormat}}
+                        </a>
+            
+                    </div>
+                
+            
+                
+                    <div class="article-inner article-inner-x">
+                
+                
+                  <input type="hidden" class="isFancy" />
+                
+                
+                  <header class="article-header">
+                    
+              
+                <h1 class="article-title" itemprop="name">
+                        {{$value.title}}
+                </h1>
+              
+            
+                  </header>
+                  
+                  <div class="article-info article-info-post">
+                    
+                <div class="article-tag tagcloud">
+                    <ul class="article-tag-list">
+                        {{each $value.tags}}
+                        <li class="article-tag-list-item"><a class="color3"  href="/tags/{{$value}}/">{{$value}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            
+                    
+            
+                    <div class="clearfix"></div>
+                  </div>
+                  
+                
+                <div class="article-entry" itemprop="articleBody">
+                        {{@$value.content}}           
+                    
+                </div>
+                
+              </div>
+              
+              
+                
+            <nav id="article-nav">
+              
+                <a href="/java-ocr-baidu/" id="article-nav-newer" class="article-nav-link-wrap">
+                  <strong class="article-nav-caption"><</strong>
+                  <div class="article-nav-title">
+                    
+                      使用百度 OCR 服务识别图片中的文本
+                    
+                  </div>
+                </a>
+              
+              
+                <a href="/windows-develop-software/" id="article-nav-older" class="article-nav-link-wrap">
+                  <div class="article-nav-title">Windows 开发者软件推荐</div>
+                  <strong class="article-nav-caption">></strong>
+                </a>
+              
+            </nav>
+            
+              
+            
+            </article>
+            {{/each}}
+
+
+<!-- <div id="page" class="pagination"></div>
+    
+<script src="{{__HOST__}}/jqPaginator.js"></script>
+
+<script>
+        $('#page').jqPaginator({
+            totalPages: {{totalPages}},
+            visiblePages: 8,
+            currentPage: {{page}},
+            onPageChange: function (num, type) {
+                console.log(num, type);
+//
+                if(type=='change'){
+                    location.href="{{__HOST__}}/article?page="+num;
+                }
+            }
+        });
+
+</script>  --> 
+  
+    <!-- <nav id="page-nav">
+      <span class="page-number current">1</span>
+      <a class="page-number" href="/page/2/">2</a>
+      <a class="page-number" href="/page/3/">3</a>
+      <span class="space">&hellip;</span>
+      <a class="page-number" href="/page/8/">8</a>
+      <a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav> -->
+{{include 'default/public/footer.html'}}
+
+
+  </div>
+</body>
+</html>
